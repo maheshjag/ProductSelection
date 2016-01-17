@@ -1,0 +1,32 @@
+{
+  "name": "ProductSelection",
+  "version": "0.0.1",
+  "description": "Select products based on location",
+  "author": "Mahesh Jagadeesan <maheshj@gmx.net>",
+  "scripts": {
+    "test": "jasmine spec/jasmine.json",
+    "start": "nodemon src/app.js"
+  },
+  "main": "lib/foo.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maheshjag/ProductSelection"
+  },
+  "bugs": {
+    "url": "https://github.com/maheshjag/ProductSelection/issues"
+  },
+  "keywords": [],
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "4.2.x"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jasmine-node": "^0.3.1",
+    "jasmine": "2.0",
+    "jasmine-node": "^1.14.5",
+    "nodemon": "1.8.1"
+  }
+}
