@@ -1,26 +1,16 @@
 var LocationService = function () {
 	// this is the customer location service
-	this.getLocationForCustomer = function (req, res) {
-		var location = '';
+	this.getLocationForCustomer = function (customerId) {
+		var customerLocations = require('../../data/customer-locations.json');
 		var FAILURE_MESSAGE = 'Failure exception';
-		var customerId = req.params.customerId;
+		console.log('Customer id:', customerId);
+		console.log('Customer locations map:', customerLocations);
 
-		if (!customerId) {
-			res.send(FAILURE_MESSAGE);
+		location = customerLocations[customerId];
+		console.log('found location:', location, 'for customer');
+		if (!customerId || !location) {
 			throw Error(FAILURE_MESSAGE);
 		}
-		console.log('Customer id:', customerId);
-		switch (customerId) {
-			case "test1":
-				location = "LONDON";
-				break;
-			case "test2":
-				location = "LIVERPOOL";
-				break;
-			default:
-				throw Error(FAILURE_MESSAGE);
-		}
-		res.send(location);
 		return location;
 	};
 };

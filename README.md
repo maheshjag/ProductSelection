@@ -24,3 +24,10 @@ As a customer, I'm shown products that match my location so that:
 	* I'm shown Arsenal TV and Chelsea TV if my location is London
 	* I'm shown Liverpool TV if my location is Liverpool
 	* I'm always shown Sky News and Sky Sports News
+
+
+TODO
+====
+* View for login
+* View for product selection page
+* View for confirmation page
