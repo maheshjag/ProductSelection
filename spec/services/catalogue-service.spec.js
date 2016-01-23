@@ -1,42 +1,47 @@
 var CatalogueService = require('../../src/services/catalogue-service');
-var catalogueService;
-var DEFAULT_PRODUCTS = ['Sky News', 'Sky Sports News'];
+var ProductMap = require('../../src/data/products.json');
 
-function assertDefaultProducts (result) {
-	expect(result).toContain(DEFAULT_PRODUCTS[0]);
-	expect(result).toContain(DEFAULT_PRODUCTS[1]);
+var DEFAULT_PRODUCTS_KEY = 'ALL';
+var DEFAULT_PRODUCTS = ProductMap[DEFAULT_PRODUCTS_KEY];
+
+function assertDefaultProducts (products) {
+	Object.keys(DEFAULT_PRODUCTS).forEach(function (productId) {
+		expect(DEFAULT_PRODUCTS[productId]).toEqual(products[productId]);
+	});
 }
 
 describe('The Catalogue Service', function () {
-	beforeEach(function () {
-		catalogueService = new CatalogueService();
-	});
 
-	afterEach(function () {
-		catalogueService = null;
-	});
+	var catalogueService = new CatalogueService();
 
 	it('should return Sky News and Sky Sports News always', function () {
-		var result = catalogueService.getProductsForLocation();
-		expect(result['NEWS']).toBeDefined();
-		assertDefaultProducts(result['NEWS']);
-		expect(result['NEWS'].length).toEqual(2);
+		var products = catalogueService.getProductsForLocation();
+		expect(products[DEFAULT_PRODUCTS_KEY]).toBeDefined();
+		assertDefaultProducts(products[DEFAULT_PRODUCTS_KEY]);
+		expect(Object.keys(products[DEFAULT_PRODUCTS_KEY]).length).toEqual(2);
 	});
 
 	it('should return correct products for LONDON', function () {
 		var locationId = 'LONDON';
 		var result = catalogueService.getProductsForLocation(locationId);
-		expect(result[locationId]).toContain('Arsenal TV');
-		expect(result[locationId]).toContain('Chelsea TV');
-		expect(result[locationId].length).toEqual(2);
-		assertDefaultProducts(result['NEWS']);
+		var products = Object.keys(result[locationId]).map(function (id) {
+			return result[locationId][id];
+		});
+		expect(products).toContain('Arsenal TV');
+		expect(products).toContain('Chelsea TV');
+		expect(products.length).toEqual(2);
+		assertDefaultProducts(result[DEFAULT_PRODUCTS_KEY]);
 	});
 
 	it('should return correct products for LIVERPOOL', function () {
 		var locationId = 'LIVERPOOL';
 		var result = catalogueService.getProductsForLocation(locationId);
-		expect(result[locationId]).toContain('Liverpool TV');
-		expect(result[locationId].length).toEqual(1);
-		assertDefaultProducts(result['NEWS']);
+		var products = Object.keys(result[locationId]).map(function (id) {
+			return result[locationId][id];
+		});
+		expect(products).toContain('Liverpool TV');
+		expect(products.length).toEqual(1);
+		assertDefaultProducts(result[DEFAULT_PRODUCTS_KEY]);
 	});
+
 });

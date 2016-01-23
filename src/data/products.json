@@ -1,0 +1,13 @@
+{
+	"LONDON": {
+		"ATV": "Arsenal TV",
+		"CTV": "Chelsea TV"
+	},
+	"LIVERPOOL": {
+		"LTV": "Liverpool TV"
+	},
+	"ALL": {
+		"SKN": "Sky News",
+		"SSN": "Sky Sports News"
+	}
+}
