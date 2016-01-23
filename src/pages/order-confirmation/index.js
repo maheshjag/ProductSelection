@@ -1,25 +1,21 @@
 /*
-Get inputs from the request.
+Get inputs.
 Input should contain customerId and selected products
 Display selected products
 */
-var ProductMap = require('../../data/products.json');
 
 function OrderProcessor() {}
 
-OrderProcessor.processInputs = function(req, res) {
-	console.log('request params:', req.body);
-	var location = req.body.location;
-	var products = req.body.product;
-	res.render('confirmation');
+OrderProcessor.processInputs = function (inputs) {
+	// save to db, etc
 };
 
-OrderProcessor.sendOutput = function () {
-
-}
-
-OrderProcessor.validateInputs = function() {
+OrderProcessor.validateInputs = function (inputs) {
 	// check if customer id matches selected products, etc.
+	console.log('request params:', inputs);
+	var location = inputs.location;
+	var products = inputs.product;
+	return true;
 };
 
 module.exports = OrderProcessor;

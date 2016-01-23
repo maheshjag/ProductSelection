@@ -69,7 +69,16 @@ app.get('/', function(req, res) {
 	});
 });
 
-app.post('/confirm', confirmationService.processInputs);
+app.post('/confirm', function (req, res, next) {
+	if (confirmationService.validateInputs(req.body)) {
+		confirmationService.processInputs();
+		next();
+	} else {
+		res.send('Sorry, there was an error processing your request. Please try again.')
+	}
+}, function (req, res) {
+	res.render('confirmation');
+});
 
 /*
 app.get('/clocs/v1.0/:customerId([a-zA-Z0-9]*)', function (req, res) {
