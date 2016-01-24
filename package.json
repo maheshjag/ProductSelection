@@ -4,8 +4,9 @@
   "description": "Select products based on location",
   "author": "Mahesh Jagadeesan <maheshj@gmx.net>",
   "scripts": {
-    "test": "jasmine spec/jasmine.json",
-    "start": "nodemon -w src/services -w src/pages src/app.js"
+    "start": "nodemon -w src/services -w src/pages src/app.js",
+    "server": "jasmine spec/jasmine.json",
+    "client": "karma start app.conf.js"
   },
   "main": "lib/foo.js",
   "repository": {

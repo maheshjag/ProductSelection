@@ -1,5 +1,5 @@
 # Installation
-Run 
+Run
 ````
 npm install
 ````
@@ -16,7 +16,7 @@ from the command line. This will start `nodemon` so that the application restart
 ---
 There are two sets of tests available: server and client. For the server tests, enter
 ````
-grunt tests
+npm run server
 ````
 from the command line. If you'd like to change the server code, then running
 ````
@@ -26,7 +26,7 @@ will fire up a watcher task that will automatically run the tests after every ch
 
 For the client tests, install karma globally using `npm install -g karma-cli` and then run
 ````
-karma start app.conf.js
+npm run client
 ````
 from the command line. This will run the tests against Chrome and Safari on OSX. By default, I've set up karma to constantly monitor the files, so any changes you make will run the tests on both browsers.
 
@@ -37,7 +37,7 @@ User stories
 
 ### Product Selection Page
 ---
-As a customer, when select or unselect a product, my shopping basket is updated so that:
+As a customer, when I select or unselect a product, my shopping basket is updated so that:
 * the shopping basket always shows my latest selection
 * I can complete my purchase (check out) only when I've added at least one product to the basket
 * I can opt to complete my purchase after adding one or more products
@@ -56,7 +56,7 @@ As a customer, when I'm logged in, the website retrieves my stored location.
 
 ## CatalogueService
 ---
-As a customer, I'm shown products that match my location so that:
+As a customer, my location is recognised so that:
 * I'm shown Arsenal TV and Chelsea TV if my location is London
 * I'm shown Liverpool TV if my location is Liverpool
 * I'm always shown Sky News and Sky Sports News
