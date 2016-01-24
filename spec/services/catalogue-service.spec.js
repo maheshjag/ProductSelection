@@ -1,3 +1,5 @@
+"use strict";
+
 var CatalogueService = require('../../src/services/catalogue-service');
 var ProductMap = require('../../src/data/products.json');
 

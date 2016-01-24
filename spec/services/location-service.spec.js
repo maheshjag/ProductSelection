@@ -1,3 +1,5 @@
+"use strict";
+
 var LocationService = require('../../src/services/location-service');
 var locationService;
 
@@ -33,7 +35,7 @@ describe('The location service', function () {
 			return locationService.getLocationForCustomer(id);
 		};
 		var location = callLocationService(testId);
-		expect(location).toEqual('LONDON')
+		expect(location).toEqual('LONDON');
 	});
 
 	it('should return LIVERPOOL if the customer id is "test1"', function() {
@@ -42,7 +44,7 @@ describe('The location service', function () {
 			return locationService.getLocationForCustomer(id);
 		};
 		var location = callLocationService(testId);
-		expect(location).toEqual('LIVERPOOL')
+		expect(location).toEqual('LIVERPOOL');
 	});
 
 });

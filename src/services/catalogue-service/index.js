@@ -1,3 +1,5 @@
+"use strict";
+
 var CatalogueService = function () {
 	// this is the product catalogue service
 };

@@ -3,7 +3,7 @@
 function addToBasket(basket, item) {
 	basket[item] = 1;
 	$('#basket .list-group')
-			.append($('<li class="list-group-item" value="' + item + '">' + item + '</li>'))
+			.append($('<li class="list-group-item" value="' + item + '">' + item + '</li>'));
 }
 
 function removeFromBasket (basket, item) {
@@ -15,15 +15,7 @@ function removeFromBasket (basket, item) {
 }
 
 function isBasketEmpty(basket) {
-	console.log('isBasketEmpty?', basket);
 	return (Object.keys(basket).length > 0);
-}
-
-function populateBasket(items) {
-	Object.keys(items).forEach(function (item) {
-		$('#basket .list-group')
-			.prepend($('<li class="list-group-item" value="' + item + '">' + item + '</li>'))
-	});
 }
 
 function toggleCheckout(flag) {
@@ -44,7 +36,6 @@ $(function() {
 		} else {
 			removeFromBasket(itemsInBasket, this.value);
 		}
-		// populateBasket(itemsInBasket);
 
 		if (isBasketEmpty(itemsInBasket)) {
 			toggleCheckout(true);

@@ -1,6 +1,9 @@
 /**
  * Created by maheshjagadeesan on 17/01/16.
  */
+
+"use strict";
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -39,7 +42,7 @@ var CatalogueService = require('./services/catalogue-service/');
 var catalogueService = new CatalogueService();
 var confirmationService = require('./pages/order-confirmation');
 
-function getCustomerId(req) {
+function getCustomerId(req, res) {
 	var cookies = req.cookies;
 	var customerId = '';
 	if (!cookies || (cookies && !cookies.customerId)) {
@@ -56,7 +59,7 @@ function getCustomerId(req) {
 // Define routes and middleware
 app.get('/', function(req, res) {
 	var locationId;
-	var customerId = getCustomerId(req);
+	var customerId = getCustomerId(req, res);
 
 	locationId = locationService.getLocationForCustomer(customerId);
 	var products = catalogueService.getProductsForLocation(locationId);
@@ -74,7 +77,7 @@ app.post('/confirm', function (req, res, next) {
 		confirmationService.processInputs();
 		next();
 	} else {
-		res.send('Sorry, there was an error processing your request. Please try again.')
+		res.send('Sorry, there was an error processing your request. Please try again.');
 	}
 }, function (req, res) {
 	res.render('confirmation');

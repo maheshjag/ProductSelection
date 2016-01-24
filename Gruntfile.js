@@ -6,10 +6,9 @@ var jsHint = {
 	options: {
 		ignores : [
 			"./**/node_modules/**/*",
-			"./**/npm-cache/**/*",
-			"**/tmp/**/"
+			"./**/npm-cache/**/*"
 		],
-		jshintrc : "unknown"
+		jshintrc : "./.jshintrc"
 	}
 };
 
@@ -39,5 +38,10 @@ module.exports = function(grunt) {
 		grunt.task.run("watch");
 	});
 
-	grunt.registerTask('default', ['j'])
+	grunt.registerTask("h", [], function() {
+		grunt.loadNpmTasks("grunt-contrib-jshint");
+		grunt.task.run("jshint");
+	});
+
+	grunt.registerTask('default', ['j']);
 };
