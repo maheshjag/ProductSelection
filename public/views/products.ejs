@@ -10,18 +10,16 @@
 		<h2>Choose from the following products</h2>
 	</div>
 	<div class="row">
-	<!-- body -->
 		<form id="productForm" method="post">
 			<div class="col-md-4">
 				<h3>Sports</h3>
-				<!-- Display the selected products -->
 				<div id="sports">
 					<%
 						if (products && products[location]) {
 							Object.keys(products[location]).forEach(function (productId) {
 					%>
 					<div class="checkbox">
-						<label><input type="checkbox" name="product" value="<%= productId %>"><%= products[location][productId] %></label>
+						<label id="<%= productId %>"><input type="checkbox" name="product" value="<%= productId %>"><%= products[location][productId] %></label>
 					</div>
 					<%
 							});
@@ -31,14 +29,13 @@
 			</div>
 			<div class="col-md-4">
 				<h3>News</h3>
-				<!-- Iterate through the product array -->
 				<div id="news">
 					<%
 						if (products && products[news]) {
 							Object.keys(products[news]).forEach(function (productId) {
 					%>
 					<div class="checkbox">
-						<label><input type="checkbox" name="product" value="<%= productId %>"><%= products[news][productId] %></label>
+						<label id="<%= productId %>"><input type="checkbox" name="product" value="<%= productId %>"><%= products[news][productId] %></label>
 					</div>
 					<%
 							});
@@ -58,7 +55,6 @@
 		</form>
 	</div>
 	<footer>
-		<!-- footer -->
-		Some footer goes here
+		<div id="footer" class="jumbotron"></div>
 	</footer>
 </body>

@@ -1,20 +1,21 @@
 "use strict";
 define([
 	'jquery'
-	], function ($){
+	], function ($) {
 
-	function addToBasket(basket, item) {
-		basket[item] = 1;
+	function addToBasket(basket, productId) {
+		basket[productId] = 1;
+		var productName = $('label#' + productId).text();
 		$('#basket .list-group')
-				.append($('<li class="list-group-item" value="' + item + '">' + item + '</li>'));
+				.append($('<li class="list-group-item" value="' + productId + '">' + productName + '</li>'));
 		return basket;
 	}
 
-	function removeFromBasket (basket, item) {
-		if (basket[item]) {
-			$('#basket .list-group-item[value="' + item + '"]')
+	function removeFromBasket (basket, productId) {
+		if (basket[productId]) {
+			$('#basket .list-group-item[value="' + productId + '"]')
 				.remove();
-			delete basket[item];
+			delete basket[productId];
 		}
 		return basket;
 	}
@@ -33,9 +34,9 @@ define([
 		$('#productForm').attr('action', '/confirm').submit();
 	}
 
-	$(function() {
+	$(function () {
 		var itemsInBasket = {};
-		$('input[type="checkbox"]').click(function() {
+		$('input[type="checkbox"]').click(function () {
 			if (this.checked) {
 				itemsInBasket = addToBasket(itemsInBasket, this.value);
 			} else {
@@ -52,6 +53,7 @@ define([
 		$('#checkout').click(submitForm);
 	});
 
+	// for unit tests
 	return {
 		addToBasket: addToBasket,
 		removeFromBasket: removeFromBasket,

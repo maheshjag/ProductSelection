@@ -5,9 +5,9 @@ define([
 
 	describe('Cart helper', function () {
 		it('should add an item to the supplied basket', function () {
-			var item = {'test': 1234};
+			var itemKey = 'test';
 			var basket = {};
-			basket = CartHelper.addToBasket(basket, item);
+			basket = CartHelper.addToBasket(basket, itemKey);
 			expect(Object.keys(basket).length).toEqual(1);
 		});
 
@@ -22,6 +22,11 @@ define([
 			it('isBasketEmpty should return true for an empty basket', function () {
 				var basket = {};
 				expect(CartHelper.isBasketEmpty(basket)).toEqual(true);
+			});
+
+			it('isBasketEmpty should return false for a non-empty basket', function () {
+				var basket = {'test': 1};
+				expect(CartHelper.isBasketEmpty(basket)).toEqual(false);
 			});
 		});
 	});
