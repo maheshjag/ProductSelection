@@ -1,8 +1,7 @@
+"use strict";
 define([
 	'jquery'
 	], function ($){
-
-	"use strict";
 
 	function addToBasket(basket, item) {
 		basket[item] = 1;
@@ -21,7 +20,7 @@ define([
 	}
 
 	function isBasketEmpty(basket) {
-		return (Object.keys(basket).length > 0);
+		return (Object.keys(basket).length === 0);
 	}
 
 	function toggleCheckout(flag) {
@@ -43,7 +42,7 @@ define([
 				itemsInBasket = removeFromBasket(itemsInBasket, this.value);
 			}
 
-			if (isBasketEmpty(itemsInBasket)) {
+			if (!isBasketEmpty(itemsInBasket)) {
 				toggleCheckout(true);
 			} else {
 				toggleCheckout(false);

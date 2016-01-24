@@ -89,5 +89,6 @@
 
     // Custom Globals
     "globals"       : {
+        "define": true
     }        // additional predefined global variables
 }

@@ -1,3 +1,4 @@
+/* global requirejs: true */
 requirejs.config({
     "baseUrl": "/scripts",
     "paths": {
