@@ -8,14 +8,6 @@
     "server": "jasmine spec/jasmine.json",
     "client": "karma start app.conf.js"
   },
-  "main": "lib/foo.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/maheshjag/ProductSelection"
-  },
-  "bugs": {
-    "url": "https://github.com/maheshjag/ProductSelection/issues"
-  },
   "keywords": [],
   "dependencies": {
     "body-parser": "^1.14.2",
