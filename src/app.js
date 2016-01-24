@@ -31,6 +31,9 @@ app.use('/css', express.static('public/css', {
 app.use('/scripts', express.static('public/scripts', {
 	extensions: ['js']
 }));
+app.use('/js', express.static('public/assets/js', {
+	extensions: ['js']
+}));
 app.set('views', __dirname + '/../public/views');
 app.set('view engine', 'ejs');
 // configuration end
