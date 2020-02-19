@@ -15,7 +15,7 @@
     "cookie-parser": "^1.4.1",
     "ejs": "^2.3.4",
     "nodemon": "1.8.1",
-    "express": "4.2.x"
+    "express": "4.17.x"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
